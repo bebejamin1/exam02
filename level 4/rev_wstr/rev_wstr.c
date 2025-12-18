@@ -25,10 +25,10 @@ int main(int arc, char **arv)
 	int	end;
 	int	count;
 
-	i = 0;
-	count = count_word(arv[1]);
 	if (arc == 2)
 	{
+		i = 0;
+		count = count_word(arv[1]);
 		if (count == 1)
 		{
 			while (arv[1][i])
@@ -41,21 +41,24 @@ int main(int arc, char **arv)
 		{
 			while (arv[1][i])
 				i++;
-			end = i - 1;
+			end = i-1;
 			while (i >= 0)
 			{
-				if (arv[1][i] == ' ' || arv[1][i] == '\t')
-					write(1, &arv[1][i], 1);
 				if (arv[1][i] == ' ' || arv[1][i] == '\t' || i == 0)
 				{
-					start = i;
+					if (i == 0)
+						start = i;
+					else
+						start = i + 1;
 					while (start <= end)
 					{
 						write(1, &arv[1][start], 1);
 						start++;
 					}
-					end = i;
+					end = i - 1;
 				}
+				if ((arv[1][i] == ' ' || arv[1][i] == '\t') && i != 0)
+					write(1, &arv[1][i], 1);
 				i--;
 			}
 		}
