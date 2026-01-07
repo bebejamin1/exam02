@@ -1,14 +1,4 @@
 #include <stdio.h>
-// unsigned char	reverse_bits(unsigned char octet)
-// {
-	
-// 	return();
-// }
-
-// int main(void)
-// {
-// 	reverse_bits(38);
-// }
 
 unsigned char	reverse_bits(unsigned char octet)
 {
